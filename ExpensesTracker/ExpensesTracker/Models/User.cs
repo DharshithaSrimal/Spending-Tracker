@@ -10,22 +10,25 @@ using System.Threading.Tasks;
 
 namespace ExpensesTracker.Models
 {
-    public class User
+    public abstract class User
     {
-        public string Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public bool IsAdmin { get; set; }
+        protected  int Id;
+        protected  string Username;
+        protected  string Password;
+        protected  string UserType;
 
-        public bool Login()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract int GetId();
+        public abstract string GetUsername();
+        public abstract string GetPassword();
+        public abstract string GetUserType();
 
-        public bool Logout()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void SetId(int id);
+        public abstract void SetUsername(string username);
+        public abstract void SetPassword(string password);
+        public abstract void SetUserType(string isadmin);
+
+        public abstract string Login();
+        public abstract string Logout();
 
     }
 }

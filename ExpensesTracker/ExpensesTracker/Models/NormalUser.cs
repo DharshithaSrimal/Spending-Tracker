@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpensesTracker.Models
 {
-    public class AdminUser : User
+    public class NormalUser : User
     {
         public override int GetId()
         {
@@ -39,7 +39,7 @@ namespace ExpensesTracker.Models
         }
         public override void SetUsername(string username)
         {
-            this.Username = username;
+           this.Username = username;
         }
 
         public override string Login()
@@ -50,27 +50,5 @@ namespace ExpensesTracker.Models
         {
             throw new NotImplementedException();
         }
-        
-        //Methods Unique only to admins
-        public bool RemoveUser()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetUser()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool GetAllUsers()
-        {
-            throw new NotImplementedException();
-        }
-        public bool AddUser()
-        {
-            throw new NotImplementedException();
-        }
-
-
     }
 }

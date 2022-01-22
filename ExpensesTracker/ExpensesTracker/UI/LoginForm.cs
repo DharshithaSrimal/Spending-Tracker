@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExpensesTracker.Models;
+using ExpensesTracker.Controllers;
 
 namespace ExpensesTracker.UI
 {
@@ -19,10 +21,11 @@ namespace ExpensesTracker.UI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            Models.User u = new Models.User();
-            u.Username = "admin";
-            u.Password = "1234";
-            u.Login();
+            User u = new NormalUser();
+            u.SetUsername("Baratha");
+            u.SetPassword("0000");
+            UserController.AddUser2(u);
+            
 
        
         }

@@ -16,11 +16,14 @@ namespace ExpensesTracker.Controllers
             if (Connection == null)
             {
                 ConnectionStringBuilder = new SQLiteConnectionStringBuilder();               
-                ConnectionStringBuilder.DataSource = "Database.db";
+                ConnectionStringBuilder.DataSource = @"D:\Spending-Tracker\ExpensesTracker\ExpensesTracker\Database.db";
                 ConnectionStringBuilder.ForeignKeys = true;
                 Connection = new SQLiteConnection(ConnectionStringBuilder.ConnectionString);
             }
-            Connection.Close();
+            if(Connection.State != System.Data.ConnectionState.Open)
+            {
+                Connection.Open();
+            }
             return Connection;
         }
     }
