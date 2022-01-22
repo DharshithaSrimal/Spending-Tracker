@@ -14,9 +14,11 @@ namespace ExpensesTracker.UI
 {
     public partial class LoginForm : Form
     {
+        private DAO.IUserDAO userDAO;
         public LoginForm()
         {
             InitializeComponent();
+            userDAO = new DAO.UserDAOImpl();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -48,26 +50,33 @@ namespace ExpensesTracker.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+
             User user = new NormalUser();
             user.SetUsername(txtUsername.Text);
-            user.SetPassword(txtPassword.Text);   
-            
-            Controllers.UserController userController = new Controllers.UserController();
-            
-            var response = userController.Login(user);
-            if (response == "SUCCESS")
+            user.SetPassword(txtPassword.Text);
+          
+            if (String.IsNullOrEmpty(user.GetUsername()) || String.IsNullOrEmpty(user.GetPassword()))
             {
-                MessageBox.Show("Login Success.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                this.Hide();
-                new Dashboard().Show();
+                MessageBox.Show("Username or Password Cannot be Empty.!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUsername.Focus();
             }
             else
             {
-                MessageBox.Show( response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPassword.Clear();
-                txtUsername.Focus();
-            }
-       
+                var response = userDAO.Login(user);
+                if (response == "SUCCESS")
+                {
+                    MessageBox.Show("Login Success.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                    new Dashboard().Show();
+                }
+                else
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPassword.Clear();
+                    txtUsername.Focus();
+                }
+            }                                                              
         }
     }
 }

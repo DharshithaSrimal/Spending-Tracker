@@ -86,8 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DatabaseController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DAO\IUserDAO.cs" />
+    <Compile Include="DAO\UserDAOImpl.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

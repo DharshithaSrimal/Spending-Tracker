@@ -1,19 +1,31 @@
 ﻿using System;
+using ExpensesTracker.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Data.SQLite;
-using ExpensesTracker.Models;
 using Dapper;
-using System.Data;
 using ExpensesTracker.Controllers;
+using System.Data;
 
 namespace ExpensesTracker.DAO
 {
-    public class UserDAO
+    public class UserDAOImpl : IUserDAO
     {
+        public string AddUser(User u)
+        {
+            throw new NotImplementedException();
+        }
+        public string DeleteUser(User u)
+        {
+            throw new NotImplementedException();
+        }
+        public string UpdateUser(User u)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Login(User u)
         {
             IDbConnection conn = DatabaseController.GetConnection();
@@ -23,7 +35,7 @@ namespace ExpensesTracker.DAO
                 var Users = conn.Query<NormalUser>(new CommandDefinition("SELECT * FROM Users WHERE Username = @Username", new { Username = u.GetUsername() }));
                 if (!Users.Any())
                 {
-                    return "User Doesnt Exists";                  
+                    return "User Doesnt Exists";
                 }
                 else
                 {
