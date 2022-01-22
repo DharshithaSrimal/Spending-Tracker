@@ -18,23 +18,21 @@ namespace ExpensesTracker.Controllers
         {
             try
             {
-                using (IDbConnection conn = DatabaseController.GetConnection())
+                 IDbConnection conn = DatabaseController.GetConnection();               
+                var affrows = conn.Execute(new CommandDefinition("INSERT INTO Users(Username , Password , UserType) VALUES(@Username , @Password , @UserType)", new
                 {
-                    var affrows = conn.Execute(new CommandDefinition("INSERT INTO Users(Username , Password , UserType) VALUES(@Username , @Password , @UserType)", new
-                    {
-                        Username = u.GetUsername(),
-                        Password = u.GetPassword(),
-                        UserType = u.GetUserType(),
-                    }));
-                    if(affrows > 0) 
-                    {
-                        return "User Insert Success.";
-                    }
-                    else
-                    {
-                        return "User Insert Failed.";
-                    }
+                    Username = u.GetUsername(),
+                    Password = u.GetPassword(),
+                    UserType = u.GetUserType(),
+                }));
+                if(affrows > 0) 
+                {
+                    return "User Insert Success.";
                 }
+                else
+                {
+                    return "User Insert Failed.";
+                }               
             }
             catch (SQLiteException ex)
             {
@@ -48,35 +46,33 @@ namespace ExpensesTracker.Controllers
                 }
             }
         }
-
         public static string Login(User u)
         {
+            IDbConnection conn = DatabaseController.GetConnection();
             try
             {
-                using (IDbConnection conn = DatabaseController.GetConnection())
+                            
+                var Users = conn.Query<NormalUser>(new CommandDefinition("SELECT * FROM Users WHERE Username = @Username", new { Username = u.GetUsername() }));
+                if(!Users.Any())
                 {
-                    var affrows = conn.Execute(new CommandDefinition("SELECT * FROM Users WHERE Username = @Username)",new {Username = u.GetUsername()}));
-                    if (affrows > 0)
-                    {
-                        return "User Insert Success.";
-                    }
-                    else
-                    {
-                        return "User Insert Failed.";
-                    }
-                }
-            }
-            catch (SQLiteException ex)
-            {
-                if (ex.ErrorCode == 19)
-                {
-                    return "User Already Exists.";
+                    return "User Doesnt Exists";
                 }
                 else
                 {
-                    return ex.Message;
-                }
+                    if (Users.First().GetPassword() == u.GetPassword())
+                    {
+                        return "SUCCESS";
+                    }
+                    else 
+                    {
+                        return "Invalid Credentials.";
+                    }
+                }               
             }
+            catch (SQLiteException ex)
+            {
+                return ex.Message;
+            }         
         }
     }
 }

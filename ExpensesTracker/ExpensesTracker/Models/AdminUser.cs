@@ -44,7 +44,7 @@ namespace ExpensesTracker.Models
 
         public override string Login()
         {
-            throw new NotImplementedException();
+            return Controllers.UserController.Login(this);
         }
         public override string Logout()
         {

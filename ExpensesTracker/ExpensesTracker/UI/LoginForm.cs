@@ -21,12 +21,47 @@ namespace ExpensesTracker.UI
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            User u = new NormalUser();
-            u.SetUsername("Baratha");
-            u.SetPassword("0000");
-            UserController.AddUser2(u);
-            
+        
+        }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtUsername.Clear();
+            txtPassword.Clear();
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char) Keys.Enter)
+            {
+                btnLogin.PerformClick();
+            }
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtPassword.Focus();
+            }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            User u = new NormalUser();
+            u.SetUsername(txtUsername.Text);
+            u.SetPassword(txtPassword.Text);
+            var response = u.Login();
+            if (response == "SUCCESS")
+            {
+                MessageBox.Show("Login Success.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show( response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Clear();
+                txtUsername.Focus();
+            }
        
         }
     }

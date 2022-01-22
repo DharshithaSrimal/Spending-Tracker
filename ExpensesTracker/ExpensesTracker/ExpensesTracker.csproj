@@ -148,7 +148,9 @@
     <EmbeddedResource Include="UI\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="Database.db" />
+    <Content Include="Database.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
