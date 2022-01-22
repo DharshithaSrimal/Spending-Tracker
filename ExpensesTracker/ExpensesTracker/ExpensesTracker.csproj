@@ -109,12 +109,6 @@
     <Compile Include="UI\AdminPanelForm.Designer.cs">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Category.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Category.Designer.cs">
-      <DependentUpon>Category.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,9 +157,6 @@
     </Compile>
     <EmbeddedResource Include="UI\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Category.resx">
-      <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
