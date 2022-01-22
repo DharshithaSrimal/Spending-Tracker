@@ -55,6 +55,8 @@ namespace ExpensesTracker.UI
             if (response == "SUCCESS")
             {
                 MessageBox.Show("Login Success.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                this.Hide();
+                new Dashboard().Show();
             }
             else
             {
