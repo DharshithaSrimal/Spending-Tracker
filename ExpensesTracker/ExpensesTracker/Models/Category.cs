@@ -17,7 +17,6 @@ namespace ExpensesTracker.Models
         public string GetName() { return Name; } 
         public string GetCatType() { return CatType; }
         public int GetUserId(){ return UserId; }
-
         public void SetName(string name) { Name = name; }
         public void SetCatType(String catType) { CatType = catType; }
     }

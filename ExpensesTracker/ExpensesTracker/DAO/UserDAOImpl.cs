@@ -13,9 +13,41 @@ namespace ExpensesTracker.DAO
 {
     public class UserDAOImpl : IUserDAO
     {
+        private IDbConnection conn;
+        public UserDAOImpl()
+        {
+            conn = DatabaseController.GetConnection();
+        }
         public string AddUser(User u)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var affrow = conn.Execute(new CommandDefinition("INSERT INTO Users (Username , Password , UserType) VALUES(@Username , @Password , @UserType)", new
+                {
+                    Username = u.GetUsername(),
+                    Password = u.GetPassword(),
+                    UserType = u.GetUserType()
+                }));
+                if(affrow > 0 )
+                {
+                    return "SUCCESS";
+                }
+                else
+                {
+                    return "User Registration Failed.";
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                if(ex.ErrorCode == 19)
+                {
+                    return "User Already Exists";
+                }
+                else
+                {
+                    return ex.Message;
+                }
+            }
         }
         public string DeleteUser(User u)
         {
@@ -28,10 +60,9 @@ namespace ExpensesTracker.DAO
 
         public string Login(User u)
         {
-            IDbConnection conn = DatabaseController.GetConnection();
+           
             try
             {
-
                 var Users = conn.Query<NormalUser>(new CommandDefinition("SELECT * FROM Users WHERE Username = @Username", new { Username = u.GetUsername() }));
                 if (!Users.Any())
                 {

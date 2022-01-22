@@ -50,8 +50,6 @@ namespace ExpensesTracker.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-
             User user = new NormalUser();
             user.SetUsername(txtUsername.Text);
             user.SetPassword(txtPassword.Text);
@@ -77,6 +75,11 @@ namespace ExpensesTracker.UI
                     txtUsername.Focus();
                 }
             }                                                              
+        }
+
+        private void lnkReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new RegisterForm().Show();
         }
     }
 }
