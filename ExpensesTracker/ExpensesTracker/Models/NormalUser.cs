@@ -50,5 +50,10 @@ namespace ExpensesTracker.Models
         {
             throw new NotImplementedException();
         }
+
+        public NormalUser()
+        {
+            UserType = "NORMAL";
+        }
     }
 }

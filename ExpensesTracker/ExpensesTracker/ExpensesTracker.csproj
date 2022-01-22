@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Models\AdminUser.cs" />
     <Compile Include="Models\NormalUser.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

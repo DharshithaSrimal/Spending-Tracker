@@ -66,11 +66,15 @@ namespace ExpensesTracker.Models
         {
             throw new NotImplementedException();
         }
-        public bool AddUser()
+        public string AddUser(User u)
         {
-            throw new NotImplementedException();
+            return Controllers.UserController.AddUser(u);
         }
 
+        public AdminUser()
+        {
+            UserType = "ADMIN";
+        }
 
     }
 }

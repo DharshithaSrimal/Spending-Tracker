@@ -61,6 +61,22 @@ namespace ExpensesTracker.Controllers
                 {
                     if (Users.First().GetPassword() == u.GetPassword())
                     {
+                        if (Users.First().GetUserType() == "ADMIN")
+                        {
+                            Session.User = new AdminUser();
+                            Session.User.SetId(Users.First().GetId());
+                            Session.User.SetUsername(Users.First().GetUsername());
+                            Session.User.SetPassword(Users.First().GetPassword());
+                            Session.User.SetUserType(Users.First().GetUserType());
+                        }
+                        else
+                        {
+                            Session.User = new NormalUser();
+                            Session.User.SetId(Users.First().GetId());
+                            Session.User.SetUsername(Users.First().GetUsername());
+                            Session.User.SetPassword(Users.First().GetPassword());
+                            Session.User.SetUserType(Users.First().GetUserType());
+                        }
                         return "SUCCESS";
                     }
                     else 
