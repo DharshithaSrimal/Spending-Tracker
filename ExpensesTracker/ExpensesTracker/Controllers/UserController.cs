@@ -14,9 +14,14 @@ namespace ExpensesTracker.Controllers
             var conn = DatabaseController.GetConnection();
             conn.Open();
             var cmd = conn.CreateCommand();
-            cmd.CommandText = "INSERT INTO Users(Username , Password) VALUES ('chamod','1234')";
+            cmd.CommandText = "INSERT INTO Users(Username , Password) VALUES ('amila2','1234')";
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public static bool Login(string username , string password)
+        {
+            return true;
         }
     }
 }

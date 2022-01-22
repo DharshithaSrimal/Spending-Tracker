@@ -20,9 +20,11 @@ namespace ExpensesTracker.UI
         private void LoginForm_Load(object sender, EventArgs e)
         {
             Models.User u = new Models.User();
-            u.Username = "chamod";
+            u.Username = "admin";
             u.Password = "1234";
             u.Login();
+
+       
         }
     }
 }
