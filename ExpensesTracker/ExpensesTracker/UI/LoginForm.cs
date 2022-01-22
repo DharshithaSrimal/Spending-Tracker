@@ -48,10 +48,13 @@ namespace ExpensesTracker.UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User u = new NormalUser();
-            u.SetUsername(txtUsername.Text);
-            u.SetPassword(txtPassword.Text);
-            var response = u.Login();
+            User user = new NormalUser();
+            user.SetUsername(txtUsername.Text);
+            user.SetPassword(txtPassword.Text);   
+            
+            Controllers.UserController userController = new Controllers.UserController();
+            
+            var response = userController.Login(user);
             if (response == "SUCCESS")
             {
                 MessageBox.Show("Login Success.", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);

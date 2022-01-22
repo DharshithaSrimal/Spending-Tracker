@@ -27,8 +27,16 @@ namespace ExpensesTracker.Models
         public abstract void SetPassword(string password);
         public abstract void SetUserType(string isadmin);
 
-        public abstract string Login();
-        public abstract string Logout();
+        public string Login()
+        {
+            var UDOA = new DAO.UserDAO();
+            System.Windows.Forms.MessageBox.Show("Login From User Object");
+            return UDOA.Login(this);
+        }
+        public  string Logout()
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

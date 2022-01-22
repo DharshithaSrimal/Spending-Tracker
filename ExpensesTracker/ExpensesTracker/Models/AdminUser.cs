@@ -41,15 +41,6 @@ namespace ExpensesTracker.Models
         {
             this.Username = username;
         }
-
-        public override string Login()
-        {
-            return Controllers.UserController.Login(this);
-        }
-        public override string Logout()
-        {
-            throw new NotImplementedException();
-        }
         
         //Methods Unique only to admins
         public bool RemoveUser()
@@ -67,8 +58,9 @@ namespace ExpensesTracker.Models
             throw new NotImplementedException();
         }
         public string AddUser(User u)
-        {
-            return Controllers.UserController.AddUser(u);
+        {;
+            throw new NotImplementedException();
+            //return Controllers.UserController.AddUser(u);
         }
 
         public AdminUser()

@@ -11,10 +11,16 @@ using Dapper.Contrib.Extensions;
 
 namespace ExpensesTracker.Controllers
 {
-    public static class UserController
+    public class UserController
     {
-        
-        public static string AddUser(User u)
+        private DAO.UserDAO DAO;
+
+        public UserController()
+        {
+            DAO = new DAO.UserDAO();
+        }
+
+        public string AddUser(User u)
         {
             try
             {
@@ -46,49 +52,20 @@ namespace ExpensesTracker.Controllers
                 }
             }
         }
-        public static string Login(User u)
+
+        public string Login(User u)
         {
-            IDbConnection conn = DatabaseController.GetConnection();
-            try
+            if(String.IsNullOrEmpty(u.GetUsername()) || String.IsNullOrEmpty(u.GetPassword()))
             {
-                            
-                var Users = conn.Query<NormalUser>(new CommandDefinition("SELECT * FROM Users WHERE Username = @Username", new { Username = u.GetUsername() }));
-                if(!Users.Any())
-                {
-                    return "User Doesnt Exists";
-                }
-                else
-                {
-                    if (Users.First().GetPassword() == u.GetPassword())
-                    {
-                        if (Users.First().GetUserType() == "ADMIN")
-                        {
-                            Session.User = new AdminUser();
-                            Session.User.SetId(Users.First().GetId());
-                            Session.User.SetUsername(Users.First().GetUsername());
-                            Session.User.SetPassword(Users.First().GetPassword());
-                            Session.User.SetUserType(Users.First().GetUserType());
-                        }
-                        else
-                        {
-                            Session.User = new NormalUser();
-                            Session.User.SetId(Users.First().GetId());
-                            Session.User.SetUsername(Users.First().GetUsername());
-                            Session.User.SetPassword(Users.First().GetPassword());
-                            Session.User.SetUserType(Users.First().GetUserType());
-                        }
-                        return "SUCCESS";
-                    }
-                    else 
-                    {
-                        return "Invalid Credentials.";
-                    }
-                }               
+                return "Username or Password Cannot be Empty.!";
             }
-            catch (SQLiteException ex)
+            else
             {
-                return ex.Message;
-            }         
+                //return DAO.Login(u);
+                return u.Login();
+            }
         }
+        
+        
     }
 }

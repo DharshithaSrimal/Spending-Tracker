@@ -40,17 +40,7 @@ namespace ExpensesTracker.Models
         public override void SetUsername(string username)
         {
            this.Username = username;
-        }
-
-        public override string Login()
-        {
-            return Controllers.UserController.Login(this);
-        }
-        public override string Logout()
-        {
-            throw new NotImplementedException();
-        }
-
+        }     
         public NormalUser()
         {
             UserType = "NORMAL";
