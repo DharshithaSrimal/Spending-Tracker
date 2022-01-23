@@ -109,6 +109,12 @@
     <Compile Include="UI\AdminPanelForm.Designer.cs">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\BudgetsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BudgetsForm.Designer.cs">
+      <DependentUpon>BudgetsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,15 @@
     <Compile Include="UI\TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\icons8-admin-settings-male-96.png" />
+    <None Include="Resources\icons8-administration-96.png" />
+    <None Include="Resources\icons8-logout-96.png" />
+    <None Include="Resources\icons8-budget-96.png" />
+    <None Include="Resources\icons8-category-96.png" />
+    <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\icons8-edit-48.png" />
+    <None Include="Resources\icons8-save-48.png" />
+    <None Include="Resources\icons8-plus-+-48.png" />
     <None Include="Resources\pngaaa.com-4051919.png" />
     <None Include="Resources\download %281%29.png" />
     <None Include="Resources\kisspng-computer-icons-user-login-5afed6038547c8.2116911015266503715459.jpg" />
@@ -157,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="UI\AdminPanelForm.resx">
       <DependentUpon>AdminPanelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BudgetsForm.resx">
+      <DependentUpon>BudgetsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>

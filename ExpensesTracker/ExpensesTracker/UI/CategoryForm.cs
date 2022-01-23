@@ -34,14 +34,5 @@ namespace ExpensesTracker.UI
                 dataGridView1.Rows.Add(category.GetId(),category.GetName(),category.GetCatType() , "Edit" , "Delete");
             }
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.ColumnIndex == 4)
-            {
-                CategoryDAO.Delete(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                LoadGrid();
-            }
-        }
     }
 }
