@@ -11,7 +11,7 @@ namespace ExpensesTracker.DAO
     {
         string Insert(Category c);
         string Update(Category c);
-        string Delete(Category c);
+        string Delete(int Id);
         Category GetById(int Id);
         List<Category> GetAll();
     }

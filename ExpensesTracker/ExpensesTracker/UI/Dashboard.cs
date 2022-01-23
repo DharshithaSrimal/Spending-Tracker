@@ -22,5 +22,10 @@ namespace ExpensesTracker.UI
             txtUsername.Text = "Username : " + Models.Session.User.GetUsername();
             txtType.Text = "Type : " + Models.Session.User.GetUserType();
         }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            new CategoryForm().Show();
+        }
     }
 }

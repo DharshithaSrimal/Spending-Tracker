@@ -17,11 +17,11 @@ namespace ExpensesTracker.DAO
         {
             conn = Controllers.DatabaseController.GetConnection();
         }
-        public string Delete(Category c)
+        public string Delete(int Id)
         {
             try
             {
-                var affrow = conn.Execute(new CommandDefinition("DELETE FROM Categories WHERE Id = @Id)", new { Id = c.GetId()}));
+                var affrow = conn.Execute(new CommandDefinition("DELETE FROM Categories WHERE Id = @Id)", new { Id = Id}));
                 if (affrow > 0)
                 {
                     return "SUCCESS";
