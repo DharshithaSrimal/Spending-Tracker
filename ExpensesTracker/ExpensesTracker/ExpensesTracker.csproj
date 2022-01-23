@@ -133,6 +133,12 @@
     <Compile Include="UI\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RecursionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RecursionForm.Designer.cs">
+      <DependentUpon>RecursionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     <Compile Include="UI\TransactionForm.Designer.cs">
       <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\icons8-analytics-96.png" />
+    <None Include="Resources\icons8-reset-96.png" />
+    <None Include="Resources\icons8-ledger-96.png" />
     <None Include="Resources\icons8-admin-settings-male-96.png" />
     <None Include="Resources\icons8-administration-96.png" />
     <None Include="Resources\icons8-logout-96.png" />
@@ -184,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RecursionForm.resx">
+      <DependentUpon>RecursionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
