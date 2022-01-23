@@ -27,5 +27,15 @@ namespace ExpensesTracker.UI
         {
             new CategoryForm().Show();
         }
+
+        private void btnBudgets_Click(object sender, EventArgs e)
+        {
+            new BudgetsForm().Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

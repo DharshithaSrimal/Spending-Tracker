@@ -32,14 +32,14 @@
             this.txtUsername = new DevExpress.XtraEditors.LabelControl();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Panel();
             this.btnCategories = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBudgets = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.btnLogout.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtType
@@ -88,19 +88,6 @@
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button7
-            // 
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = global::ExpensesTracker.Properties.Resources.icons8_admin_settings_male_96;
-            this.button7.Location = new System.Drawing.Point(308, 432);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(211, 159);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "User Settings";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,24 +99,24 @@
             this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // btnLogout
             // 
-            this.panel1.Controls.Add(this.btnCategories);
-            this.panel1.Controls.Add(this.txtType);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.txtUsername);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1105, 662);
-            this.panel1.TabIndex = 10;
+            this.btnLogout.Controls.Add(this.btnCategories);
+            this.btnLogout.Controls.Add(this.txtType);
+            this.btnLogout.Controls.Add(this.btnBudgets);
+            this.btnLogout.Controls.Add(this.txtUsername);
+            this.btnLogout.Controls.Add(this.button8);
+            this.btnLogout.Controls.Add(this.button5);
+            this.btnLogout.Controls.Add(this.button7);
+            this.btnLogout.Controls.Add(this.button4);
+            this.btnLogout.Controls.Add(this.button6);
+            this.btnLogout.Controls.Add(this.button3);
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLogout.Location = new System.Drawing.Point(0, 0);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(1105, 662);
+            this.btnLogout.TabIndex = 10;
             // 
             // btnCategories
             // 
@@ -145,18 +132,32 @@
             this.btnCategories.UseVisualStyleBackColor = true;
             this.btnCategories.Click += new System.EventHandler(this.btnCategories_Click);
             // 
-            // button2
+            // btnBudgets
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = global::ExpensesTracker.Properties.Resources.icons8_budget_96;
-            this.button2.Location = new System.Drawing.Point(308, 229);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 159);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Budgets Allocations";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBudgets.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBudgets.Image = global::ExpensesTracker.Properties.Resources.icons8_budget_96;
+            this.btnBudgets.Location = new System.Drawing.Point(308, 229);
+            this.btnBudgets.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBudgets.Name = "btnBudgets";
+            this.btnBudgets.Size = new System.Drawing.Size(211, 159);
+            this.btnBudgets.TabIndex = 1;
+            this.btnBudgets.Text = "Budgets Allocations";
+            this.btnBudgets.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBudgets.UseVisualStyleBackColor = true;
+            this.btnBudgets.Click += new System.EventHandler(this.btnBudgets_Click);
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Image = global::ExpensesTracker.Properties.Resources.icons8_admin_settings_male_96;
+            this.button7.Location = new System.Drawing.Point(308, 432);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(211, 159);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "User Settings";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -170,6 +171,7 @@
             this.button4.Text = "Logout";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -189,15 +191,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 662);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnLogout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.btnLogout.ResumeLayout(false);
+            this.btnLogout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,8 +213,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBudgets;
         private System.Windows.Forms.Button btnCategories;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel btnLogout;
     }
 }
