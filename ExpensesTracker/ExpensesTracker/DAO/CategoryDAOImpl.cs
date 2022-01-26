@@ -17,11 +17,12 @@ namespace ExpensesTracker.DAO
         {
             conn = Controllers.DatabaseController.GetConnection();
         }
+
         public string Delete(int Id)
         {
             try
             {
-                var affrow = conn.Execute(new CommandDefinition("DELETE FROM Categories WHERE Id = @Id)", new { Id = Id}));
+                var affrow = conn.Execute(new CommandDefinition("DELETE FROM Categories WHERE Id = @Id", new { Id = Id}));
                 if (affrow > 0)
                 {
                     return "SUCCESS";
@@ -42,7 +43,7 @@ namespace ExpensesTracker.DAO
             var Category = conn.Query<Category>(new CommandDefinition("SELECT * FROM Categories"));
             if (!Category.Any())
             {
-                return null;
+                return new List<Category>();
             }
             else
             {
@@ -92,6 +93,25 @@ namespace ExpensesTracker.DAO
                 {
                     return ex.Message;
                 }
+            }
+        }
+
+        public List<Category> Search(string text)
+        {
+            var cmd = new CommandDefinition("SELECT * FROM Categories WHERE UserId = @UserId AND Name LIKE '%" + text + "%' OR CatType LIKE '%" + text + "%'", new
+            {
+                UserId = Session.User.GetId(),             
+            });
+
+            var Category = conn.Query<Category>(cmd);
+
+            if (!Category.Any())
+            {
+                return new List<Category>();
+            }
+            else
+            {
+                return Category.ToList();
             }
         }
 

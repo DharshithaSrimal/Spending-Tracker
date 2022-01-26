@@ -14,5 +14,6 @@ namespace ExpensesTracker.DAO
         string Delete(int Id);
         Category GetById(int Id);
         List<Category> GetAll();
+        List<Category> Search(string text);
     }
 }
